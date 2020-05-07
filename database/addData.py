@@ -12,7 +12,7 @@ client=MongoClient('localhost',27017)
 db=client['ZION']
 coll=db['user_info']
 
-with open('C:/Users/MR7/Desktop/user.json') as f:
+with open('factcheckZION/database/user.json') as f:
     data=json.load(f)
 
 coll.insert_many(data)
