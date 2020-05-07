@@ -14,8 +14,10 @@ lang = "english"
 tweets = query_tweets(ipstr, begindate=begin_date, enddate=end_date ,limit=limit, lang=lang)
 
 df = pd.DataFrame(t.__dict__ for t in tweets)
-
-
 df.sort_values(by=['likes','retweets','replies'], inplace=True, ascending=False)
-df.to_json(r'/home/aditya/factcheckZION/core/op/scrapesearch.json')
+
+df.drop(df.columns[[2,3,5,6,8,11,13,17,18,19,20]], axis = 1, inplace = True)
+a=df.shape
+last=a[1]
+df = df[df.likes >=50]
 

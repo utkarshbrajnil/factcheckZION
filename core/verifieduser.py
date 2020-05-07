@@ -15,7 +15,7 @@ twint.run.Lookup(c)
 import twint
 
 c = twint.Config()
-c.Username = "catalinmpit"
+c.Username = "narendramodi"
 c.Pandas = True
 c.User_full = True
 
