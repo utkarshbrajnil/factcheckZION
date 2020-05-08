@@ -1,5 +1,7 @@
 import requests, webbrowser
+import bs4 as bs
 from bs4 import BeautifulSoup
+import urllib.request
 
 user_input = input("enter somethiong to search: ")
 print("searching for the fact....")
@@ -17,14 +19,22 @@ results=[]
 
 for link in search_results[:5]:
     actual_link=link.get('href')
-    link_result=requests.get("https://google.com/"  + actual_link)
-    soup=BeautifulSoup(link_result.text, 'html.parser')
-    a=soup.select('p')
-    results.append(a)
+    print(actual_link)
+    link_result=urllib.request.urlopen("https://google.com" +actual_link).read()
+    soup=BeautifulSoup(link_result, 'lxml')
+    #print(soup)
+    nav=soup.nav
+    body=soup.body
+    for paragraph in body.find_all('p'):
+        results.append(paragraph.text)
+  #  for div in soup.find_all('div'):
+  #      print(div.text)
 
 for r in results:
     print(r)
     print("\n")
+
+#print(len(results))
 
 
 
