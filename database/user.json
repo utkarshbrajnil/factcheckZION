@@ -1,0 +1,32 @@
+[
+    {
+        "name":"malay",
+        "userID":"rai_malay07",
+        "tweet":"F.R.I.E.N.D.S. is better than H.I.M.Y.M.",
+        "verifeid":true
+    },
+    {
+        "name":"aditya",
+        "userID":"adi2k",
+        "tweet":"I got a lot of kidneys",
+        "verifeid":false
+    },
+    {
+        "name":"utkarsh",
+        "userID":"brajnilutkarsh",
+        "tweet":"Seri seri seri",
+        "verifeid":true
+    },
+    {
+        "name":"arnab",
+        "userID":"biswas07",
+        "tweet":"Matha garam mat kar",
+        "verifeid":false
+    },
+    {
+        "name":"prajwal",
+        "userID":"bondarde007",
+        "tweet":"P.D.",
+        "verifeid":true
+    }
+]
