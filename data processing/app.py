@@ -19,7 +19,7 @@ def sms_reply():
     google_search = requests.get("https://www.google.com/search?q="+msg+"factcheck")
     soup = BeautifulSoup(google_search.text, 'html.parser')
     search_results = soup.select('.kCrYT a')
-    msgr=search_results[0]
+    msgr="https://google.com"+search_results[0]
     # Create reply
     resp = MessagingResponse()
     resp.message(msgr)
