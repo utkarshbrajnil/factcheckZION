@@ -14,12 +14,23 @@ twint.run.Lookup(c)
 
 import twint
 
-c = twint.Config()
-c.Username = "narendramodi"
-c.Pandas = True
-c.User_full = True
+#list_screen_name=['GovernorMasari','brajnilutkarsh','narendramodi','brajnilutkarsh']
 
-twint.run.Lookup(c)
+def get_user_info(screen_name):
+    c = twint.Config()
+    c.Username = screen_name
+    c.Pandas = True
+    c.User_full = True
+    twint.run.Lookup(c)
+    Users_df = twint.storage.panda.User_df
+    Users_df.drop_duplicates(subset ="name", keep = 'last', inplace = True) 
+    return Users_df
 
+def verify_list(list1): 
+    for i in list1:
+        Users_df = get_user_info(i)
+        verify_df=Users_df.loc[:, ['username','verified']]
+        verify_df.set_index('username',inplace=True)
+    return (verify_df)
 
-Users_df = twint.storage.panda.User_df
+#ans = verify_list(list_screen_name)
